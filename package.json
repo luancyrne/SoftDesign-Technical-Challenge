@@ -1,0 +1,35 @@
+{
+  "name": "softdesign-technical-challenge",
+  "version": "1.0.0",
+  "description": "API to manage books and rent;",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luancyrne/SoftDesign-Technical-Challenge.git"
+  },
+  "keywords": [
+    "challenge",
+    "softdesign",
+    "apirest",
+    "system",
+    "management",
+    "manager",
+    "books",
+    "rent",
+    "book"
+  ],
+  "author": "Luan Cyrne",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luancyrne/SoftDesign-Technical-Challenge/issues"
+  },
+  "homepage": "https://github.com/luancyrne/SoftDesign-Technical-Challenge#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.8.2"
+  }
+}
