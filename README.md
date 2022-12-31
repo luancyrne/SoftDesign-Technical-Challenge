@@ -30,6 +30,8 @@ Faça uma copia do projeto para uma pasta de sua preferência, depois basta util
 ```
 Apos a instalação dos modulos necessários o projeto podera ser iniciado para desenvolvimento utilizando o nodemon:
 
+*Não se esqueça de configurar o arquivo .env para as configurações de seu banco de dados*
+
 ```bash
   npm run dev
 ```
@@ -40,6 +42,7 @@ Caso queria iniciar o ambiente de produção direto basta utilizar:
 ```
 
 
+    
 ## Funcionalidades
 
 - Autenticação com proteção de rotas e token
@@ -203,4 +206,3 @@ A aplicação esta totalmente protegida, portanto todas as rotas de ações nece
 ```http
   GET /rent/{idBook}
 ```
-
