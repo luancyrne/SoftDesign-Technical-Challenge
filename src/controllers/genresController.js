@@ -1,4 +1,5 @@
 const Genres = require('../models/genres');
+const Books = require('../models/books');
 
 module.exports = {
   getAllGenres: async (req, res) => {
@@ -12,8 +13,17 @@ module.exports = {
   getGenreName: async (req, res) => {
     const { name } = req.params;
     try {
-      const genre = await Genres.find({ name: { $regex: `${name}` } });
+      const genre = await Genres.find({ name: { $regex: `${name}` } }, 'name');
       return res.send({ genre });
+    } catch (err) {
+      return res.send({ error: 'Error finding genre' });
+    }
+  },
+  getBooksGenre: async (req, res) => {
+    try {
+      const genre = await Genres.findById(req.params.id, 'name');
+      const books = await Books.find({ genre: genre.name });
+      return res.send({ books });
     } catch (err) {
       return res.send({ error: 'Error finding genre' });
     }

@@ -9,6 +9,7 @@ router.use(authMiddleware);
 router
   .get('/', genresController.getAllGenres)
   .get('/name/:name', genresController.getGenreName)
+  .get('/:id', genresController.getBooksGenre)
   .post('/', genresController.addGenre)
   .delete('/:id', genresController.deleteGenre);
 
