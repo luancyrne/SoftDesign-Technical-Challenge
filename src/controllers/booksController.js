@@ -6,7 +6,7 @@ module.exports = {
     try {
       const books = await Books.find({}, 'img title author genre publisher inStock rented');
       return res.send({ books });
-    } catch (error) {
+    } catch (err) {
       return res.send({ error: 'Error loading bookshelf' });
     }
   },
@@ -14,7 +14,7 @@ module.exports = {
     try {
       const book = await Books.findById(req.params.id, 'img title author genre publisher rented');
       return res.send({ book });
-    } catch (error) {
+    } catch (err) {
       return res.status(400).send({ erro: 'Error when searching book on shelf' });
     }
   },
@@ -23,7 +23,7 @@ module.exports = {
     try {
       const book = await Books.find({ title: { $regex: `${name}` } });
       return res.send({ book });
-    } catch (error) {
+    } catch (err) {
       return res.status(404).send({ error: 'Could not find the book with this name' });
     }
   },
@@ -31,8 +31,24 @@ module.exports = {
     try {
       const book = await Books.findById(req.params.id);
       return res.send({ book });
-    } catch (error) {
+    } catch (err) {
       return res.status(400).send({ erro: 'Error when searching book on shelf' });
+    }
+  },
+  getBooksRented: async (req, res) => {
+    try {
+      const book = await Books.find({ rented: true });
+      return res.send({ book });
+    } catch (err) {
+      return res.status(400).send({ error: 'Unable to search for rented books' });
+    }
+  },
+  getBooksNoRented: async (req, res) => {
+    try {
+      const book = await Books.find({ rented: false });
+      return res.send({ book });
+    } catch (err) {
+      return res.status(400).send({ error: 'Unable to search for rented books' });
     }
   },
   addBook: async (req, res) => {

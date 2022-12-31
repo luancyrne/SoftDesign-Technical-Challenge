@@ -29,4 +29,16 @@ module.exports = {
       return res.status(400).send({ error: 'Unable to rent the book' });
     }
   },
+  rentedBooks: async (req, res) => {
+    const bearer = req.headers.authorization;
+    const token = await bearer.replace('Bearer ', '');
+    const { id } = await jwt.decode(token);
+
+    try {
+      const { rentedBooks } = await User.findById(id);
+      return res.send(rentedBooks);
+    } catch (err) {
+      return res.status(400).send({ error: 'Failed to load your books' });
+    }
+  },
 };

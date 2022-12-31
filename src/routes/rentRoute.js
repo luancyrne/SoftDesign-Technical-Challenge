@@ -6,6 +6,8 @@ const router = express.Router();
 
 router.use(authMiddleware);
 
-router.get('/:id', rentController.rentBook);
+router
+  .get('/:id', rentController.rentBook)
+  .get('/rented/my', rentController.rentedBooks);
 
 module.exports = (app) => app.use('/rent', router);

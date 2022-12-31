@@ -6,7 +6,7 @@ const User = require('../models/user');
 
 function generateToken(params = {}) {
   return jwt.sign(params, authConfig.secret, {
-    expiresIn: 86400,
+    expiresIn: 600,
   });
 }
 

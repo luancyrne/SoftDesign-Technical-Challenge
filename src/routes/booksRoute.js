@@ -11,6 +11,8 @@ router
   .get('/:id', booksController.getBook)
   .get('/name/:name', booksController.getBookName)
   .get('/:id/detail', booksController.getBookDetail)
+  .get('/rented/filter', booksController.getBooksRented)
+  .get('/norented/filter', booksController.getBooksNoRented)
   .post('/', booksController.addBook)
   .put('/:id', booksController.updateBook)
   .delete('/:id', booksController.deleteBook);
