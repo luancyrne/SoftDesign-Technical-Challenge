@@ -21,7 +21,7 @@ module.exports = {
         return null;
       }));
 
-      await currentBooks.push({ _id: req.params.id, title });
+      await currentBooks.push({ _id: req.params.id, title, date: Date.now });
 
       await User.findByIdAndUpdate(id, { rentedBooks: currentBooks });
       return res.send({ msg: 'Book rented on your user' });
