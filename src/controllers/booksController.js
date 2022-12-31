@@ -49,6 +49,10 @@ module.exports = {
   },
   updateBook: async (req, res) => {
     try {
+      const { rented } = await Books.findById(req.params.id, 'rented');
+      if (rented) {
+        return res.status(400).send({ error: 'It is not possible to edit this book because it is rented' });
+      }
       await Books.findByIdAndUpdate(req.params.id, req.body, { new: true });
       return res.send({ msg: 'Updated book' });
     } catch (err) {
@@ -57,6 +61,10 @@ module.exports = {
   },
   deleteBook: async (req, res) => {
     try {
+      const { rented } = await Books.findById(req.params.id, 'rented');
+      if (rented) {
+        return res.status(400).send({ error: 'Could not delete this book because it is rented' });
+      }
       await Books.findByIdAndRemove(req.params.id);
       return res.send({ msg: 'Deleted book' });
     } catch (error) {
