@@ -26,7 +26,7 @@ module.exports = {
 
     user.password = undefined;
 
-    return res.send({ user, token: generateToken({ id: user.id }) });
+    return res.send({ msg: 'Logged', token: generateToken({ id: user.id, admin: user.admin }) });
   },
   register: async (req, res) => {
     const { email } = req.body;
@@ -40,7 +40,7 @@ module.exports = {
 
       user.password = undefined;
 
-      return res.send({ user, token: generateToken({ id: user.id }) });
+      return res.send({ msg: 'Registered', token: generateToken({ id: user.id, admin: user.admin }) });
     } catch (err) {
       return res.status(400).send({ error: 'Registration failed' });
     }

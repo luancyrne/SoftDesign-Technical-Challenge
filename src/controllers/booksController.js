@@ -55,7 +55,7 @@ module.exports = {
     const genre = req.body;
     try {
       if (!await Genres.findOne({ name: genre.genre })) {
-        return res.status(400).send({ error: 'No gender defined or no gender registered' });
+        return res.status(400).send({ error: 'No gener defined or no gener registered' });
       }
       await Books.create(req.body);
       return res.send({ msg: 'Book successfully added' });
