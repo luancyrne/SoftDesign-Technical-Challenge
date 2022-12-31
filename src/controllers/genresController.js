@@ -25,7 +25,7 @@ module.exports = {
       const books = await Books.find({ genre: genre.name });
       return res.send({ books });
     } catch (err) {
-      return res.send({ error: 'Error finding genre' });
+      return res.send({ error: 'Error finding books' });
     }
   },
   addGenre: async (req, res) => {
