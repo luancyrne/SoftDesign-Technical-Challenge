@@ -8,6 +8,7 @@ router.use(authMiddleware);
 
 router
   .get('/:id', rentController.rentBook)
-  .get('/rented/my', rentController.rentedBooks);
+  .get('/rented/my', rentController.rentedBooks)
+  .put('/:id', rentController.returnBook);
 
 module.exports = (app) => app.use('/rent', router);

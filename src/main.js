@@ -12,6 +12,6 @@ require('./routes/genresRoute')(app);
 require('./routes/authorsRoute')(app);
 require('./routes/rentRoute')(app);
 
-app.get('/', (req, res) => res.send({ msg: 'API running', port: 3000 }));
+app.get('/', (req, res) => res.send({ msg: 'API running', port: process.env.PORT }));
 
-app.listen(3000, () => console.log('msg: API running | port: 3000'));
+app.listen(process.env.PORT, () => console.log('msg: API running | port: ', process.env.PORT));
