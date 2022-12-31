@@ -6,4 +6,9 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.listen(3000);
+require('./routes/userRoute')(app);
+require('./routes/booksRoute')(app);
+
+app.get('/', (req, res) => res.send({ msg: 'API running', port: 3000 }));
+
+app.listen(3000, () => console.log('msg: API running | port: 3000'));

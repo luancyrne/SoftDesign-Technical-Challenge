@@ -1,8 +1,7 @@
 const mongoose = require('mongoose');
 
-require('dotenv');
-
-mongoose.connect(MONGO_HOST, { useMongoClient: true });
+mongoose.set('strictQuery', false);
+mongoose.connect('mongodb://127.0.0.1:27017/rentbooks');
 mongoose.Promise = global.Promise;
 
 module.exports = mongoose;
