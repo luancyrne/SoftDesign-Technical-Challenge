@@ -17,6 +17,9 @@ const UserSchema = new mongoose.Schema({
     required: true,
     select: false,
   },
+  rentedBooks: [{
+
+  }],
   createdAt: {
     type: Date,
     default: Date.now,
